@@ -1,0 +1,8 @@
+﻿################################################################################
+# Ten plik .gitignore został utworzony automatycznie przez Microsoft(R) Visual Studio.
+################################################################################
+
+/Zadanie1/.vs/Zadanie1/v16
+/Zadanie1/Zadanie1/Assets
+/Zadanie1/Zadanie1/bin/x86/Debug
+/Zadanie1/Zadanie1/obj
