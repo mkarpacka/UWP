@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -24,7 +25,17 @@ namespace Zadanie1
         public MainPage()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             this.ViewModel = new DataStoreViewModel();
+            KeyboardAccelerator GoBack = new KeyboardAccelerator();
+            GoBack.Key = VirtualKey.GoBack;
+            KeyboardAccelerator AltLeft = new KeyboardAccelerator();
+            AltLeft.Key = VirtualKey.Left;
+            this.KeyboardAccelerators.Add(GoBack);
+            this.KeyboardAccelerators.Add(AltLeft);
+            // ALT routes here
+            AltLeft.Modifiers = VirtualKeyModifiers.Menu;
+
         }
         public DataStoreViewModel ViewModel
         {
@@ -34,6 +45,24 @@ namespace Zadanie1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.ViewModel.ClearHistory();
+        }
+
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(BlankPage1), textbox_FName.Text + " " + textbox_LName.Text);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter is string && !string.IsNullOrWhiteSpace((string)e.Parameter))
+            {
+                text_age.Text = $"Your age is: {e.Parameter.ToString()}";
+            }
+            else
+            {
+                text_age.Text = "inonk";
+            }
+            base.OnNavigatedTo(e);
         }
     }
     public class DataStoreViewModel : INotifyPropertyChanged

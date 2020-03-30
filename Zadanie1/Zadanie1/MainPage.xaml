@@ -9,15 +9,19 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <HyperlinkButton Content="Click to go to page 2" HorizontalAlignment="Left" Margin="847,129,0,0" VerticalAlignment="Top" Click="HyperlinkButton_Click"/>
+      
         <TextBox x:Name="textbox_FName" HorizontalAlignment="Left" Margin="534,347,0,0" Text="{x:Bind Path=ViewModel.FName, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="216"/>
         <TextBox x:Name="textbox_LName" HorizontalAlignment="Left" Margin="534,427,0,0" Text="{x:Bind Path=ViewModel.LName, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="216"/>
 
         <TextBlock x:Name="lifeHistoryDesc" HorizontalAlignment="Left" Margin="534,681,0,0" Text="1-launched; 2-restored; 3-suspended; 4-resumed" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="lifeHistory" HorizontalAlignment="Left" Margin="534,571,0,0" Text="{x:Bind Path=ViewModel.LifeHistory, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textblock3" HorizontalAlignment="Left" Margin="534,514,0,0" Text="{x:Bind Path=ViewModel.Summary, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="textblock2" HorizontalAlignment="Left" Margin="534,403,0,0" Text="Surname" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="textblock1" HorizontalAlignment="Left" Margin="534,323,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
+        <TextBlock x:Name="textblock3" Text="{x:Bind Path=ViewModel.Summary, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="534,514,0,0"  TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+        <TextBlock Name="text_age" HorizontalAlignment="Left" Margin="840,201,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="375"/>
         <Button Content="Clear life history" Click="Button_Click"  Margin="534,623,0,0" VerticalAlignment="Top"/>
 
     </Grid>
